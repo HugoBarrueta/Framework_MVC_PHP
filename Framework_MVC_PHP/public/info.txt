@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+Options -Multiviews
+rewriteEngine On 
+#Cambiar nombre <MVC> por nombre correspondiente de la carpeta/ruta
+rewriteBase /MVC/public/       
+rewriteCond %{REQUES_FILENAME} !-d
+rewriteCond %{REQUES_FILENAME} !-f
+rewriteRule ^my_dir/(.+)$ /new_dir/?my_var=$1 [L,QSA]
+rewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+</IfModule>
